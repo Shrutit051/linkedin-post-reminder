@@ -34,7 +34,7 @@
     "default_title": "LinkedIn Post Reminder"
   },
   "oauth2": {
-    "client_id": "944512677681-sivdafar2uaqfeblkv4suvkrgf9cnf1g.apps.googleusercontent.com",
+    "client_id": "replace with your client id",
     "scopes": [
       "https://www.googleapis.com/auth/calendar.events",
       "https://www.googleapis.com/auth/gmail.send",
