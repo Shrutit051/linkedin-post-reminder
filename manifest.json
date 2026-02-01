@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Post Reminder",
+  "version": "1.0",
+  "description": "Remind yourself to read saved LinkedIn posts via Calendar or Email.",
+  "permissions": [
+    "identity",
+    "alarms",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://www.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "LinkedIn Post Reminder"
+  },
+  "oauth2": {
+    "client_id": "944512677681-sivdafar2uaqfeblkv4suvkrgf9cnf1g.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.events",
+      "https://www.googleapis.com/auth/gmail.send"
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*"
+      ],
+      "matches": [
+        "https://www.linkedin.com/*"
+      ]
+    }
+  ]
+}

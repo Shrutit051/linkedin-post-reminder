@@ -1,0 +1,263 @@
+/* styles.css */
+
+.li-reminder-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  animation: liFadeIn 0.2s ease-out;
+}
+
+@keyframes liFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.li-reminder-modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  width: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateY(0);
+  animation: liSlideIn 0.2s ease-out;
+}
+
+@keyframes liSlideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.li-reminder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.li-reminder-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.li-reminder-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+}
+
+.li-reminder-close:hover {
+  color: #000;
+}
+
+.li-reminder-content-preview {
+  background: #f8fafe;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4a4a4a;
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #e1e9ee;
+}
+
+.li-reminder-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.li-reminder-form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.li-reminder-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.li-reminder-checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.li-checkbox-label {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+/* Custom Checkbox Styling to ensure visibility */
+.li-checkbox-label input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #666;
+  border-radius: 4px;
+  margin-right: 12px;
+  position: relative;
+  cursor: pointer;
+  background: white;
+  transition: all 0.2s;
+}
+
+.li-checkbox-label input[type="checkbox"]:checked {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.li-checkbox-label input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.li-checkbox-label:hover input[type="checkbox"] {
+  border-color: #0a66c2;
+}
+
+.li-reminder-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.li-reminder-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 24px;
+  /* Rounded pill style */
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #0a66c2;
+  color: white;
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.li-reminder-btn:hover {
+  background: #004182;
+  box-shadow: 0 6px 16px rgba(10, 102, 194, 0.4);
+  transform: translateY(-1px);
+}
+
+.li-reminder-btn:active {
+  transform: translateY(1px);
+}
+
+.li-reminder-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Toast Notification */
+.li-reminder-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1f2937;
+  /* Dark elegant background */
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  z-index: 10001;
+  animation: toastSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.li-toast-icon {
+  background: #10b981;
+  /* Green success */
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+
+@keyframes toastSlideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes toastFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
