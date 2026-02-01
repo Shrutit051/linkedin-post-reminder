@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Post Reminder",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Remind yourself to read saved LinkedIn posts via Calendar or Email.",
   "permissions": [
     "identity",
@@ -37,7 +37,10 @@
     "client_id": "944512677681-sivdafar2uaqfeblkv4suvkrgf9cnf1g.apps.googleusercontent.com",
     "scopes": [
       "https://www.googleapis.com/auth/calendar.events",
-      "https://www.googleapis.com/auth/gmail.send"
+      "https://www.googleapis.com/auth/gmail.send",
+      "openid",
+      "email",
+      "profile"
     ]
   },
   "web_accessible_resources": [
